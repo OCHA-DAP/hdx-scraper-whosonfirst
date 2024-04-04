@@ -1,0 +1,2 @@
+# Collector specific configuration
+inventory_json: "https://data.geocode.earth/wof/dist/shapefile/inventory.json"
