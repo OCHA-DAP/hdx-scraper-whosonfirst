@@ -49,6 +49,7 @@ class WhosOnFirst:
         return [{"name": dataset_name} for dataset_name in sorted(self.dataset_data)], state
 
     def generate_dataset(self, dataset_name):
+        dataset_name = self.dataset_data[dataset_name]
         country = dataset_name.split("-")[3]
         country_info = Country.get_country_info_from_iso2(country)
         if not country_info:

@@ -8,7 +8,6 @@ from os.path import join
 import pytest
 from hdx.api.configuration import Configuration
 from hdx.data.vocabulary import Vocabulary
-from hdx.utilities.compare import assert_files_same
 from hdx.utilities.dateparse import parse_date
 from hdx.utilities.downloader import Download
 from hdx.utilities.errors_onexit import ErrorsOnExit
