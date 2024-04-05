@@ -3,7 +3,7 @@ notes: "This dataset contains administrative polygons grouped by country (admin-
 caveats: "Who's On First data is updated on an as needed basis. After a database update, the new data will be available for download within 24-hours. Not all countries include features and/or polygons for the full range of administrative levels and some others may be out-of-date or have poor spatial resolution. Some populated place human settlements may be missing because of older, incomplete, or inaccurate source material and most are represented as a point geometry."
 methodology: "Other"
 methodology_other: "The Who's On First dataset is both an original work and a modification of existing [open data sources](https://whosonfirst.org/docs/licenses/). Some of those open data projects do require attribution. We detail our more than 300 authoritative sources, including national mapping agencies and census ministries, and their specific license, usage, and vintage metadata in the full [sources list](https://whosonfirst.org/docs/sources/list/)."
-dataset_source: "Multiple sources. See [README.md](https://github.com/whosonfirst/whosonfirst-sources/blob/main/sources/README.md) file."
+dataset_source: "Multiple sources."
 package_creator: "briar-mills"
 private: False
-update_frequency: "As needed"
+data_update_frequency: "-2"
