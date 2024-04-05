@@ -22,7 +22,9 @@ class TestPeaceSecurity:
     dataset = {
         "dataset_date": "[2015-08-18T00:00:00 TO *]",
         "groups": [{"name": "afg"}],
+        "maintainer": "f2e346a1-f2d5-4178-ab52-0b23455e8bef",
         "name": "whosonfirst-data-admin-afg",
+        "owner_org": "c9f41aaf-4aa7-4c2f-b9c1-6290a20fd45d",
         "subnational": "1",
         "title": "Afghanistan: Who's On First Administrative Subdivisions and Human Settlements",
     }

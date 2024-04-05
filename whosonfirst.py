@@ -60,8 +60,8 @@ class WhosOnFirst:
         name = f"whosonfirst-data-admin-{country_iso}"
         title = f"{country_name}: Who's On First Administrative Subdivisions and Human Settlements"
         dataset = Dataset({"name": slugify(name), "title": title})
-        # dataset.set_maintainer("")
-        # dataset.set_organization("")
+        dataset.set_maintainer("f2e346a1-f2d5-4178-ab52-0b23455e8bef")
+        dataset.set_organization("c9f41aaf-4aa7-4c2f-b9c1-6290a20fd45d")
         dataset.set_subnational(True)
         dataset.add_country_location(country_name)
         start_date = parse_date("2015-08-18")
