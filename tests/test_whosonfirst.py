@@ -26,6 +26,12 @@ class TestPeaceSecurity:
         "name": "whosonfirst-data-admin-afg",
         "owner_org": "c9f41aaf-4aa7-4c2f-b9c1-6290a20fd45d",
         "subnational": "1",
+        "tags": [
+            {"name": "geodata", "vocabulary_id": "4e61d464-4943-4e97-973a-84673c1aaa87"},
+            {"name": "populated places-settlements", "vocabulary_id": "4e61d464-4943-4e97-973a-84673c1aaa87"},
+            {"name": "administrative boundaries-divisions", "vocabulary_id": "4e61d464-4943-4e97-973a-84673c1aaa87"},
+            {"name": "population", "vocabulary_id": "4e61d464-4943-4e97-973a-84673c1aaa87"},
+        ],
         "title": "Afghanistan: Who's On First Administrative Subdivisions and Human Settlements",
     }
     resource = {
@@ -50,9 +56,10 @@ class TestPeaceSecurity:
         )
         UserAgent.set_global("test")
         tags = (
-            "complex emergency-conflict-security",
-            "peacekeeping",
-            "fatalities",
+            "geodata",
+            "populated places-settlements",
+            "administrative boundaries-divisions",
+            "population",
         )
         Vocabulary._tags_dict = {tag: {"Action to Take": "ok"} for tag in tags}
         tags = [{"name": tag} for tag in tags]
