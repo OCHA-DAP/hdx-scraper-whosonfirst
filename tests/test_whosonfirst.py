@@ -1,6 +1,6 @@
 #!/usr/bin/python
 """
-Unit tests for peacekeeping.
+Unit tests for Who's On First.
 
 """
 from os.path import join
@@ -18,7 +18,7 @@ from hdx.utilities.useragent import UserAgent
 from whosonfirst import WhosOnFirst
 
 
-class TestPeaceSecurity:
+class TestWhosOnFirst:
     dataset = {
         "dataset_date": "[2015-08-18T00:00:00 TO *]",
         "groups": [{"name": "afg"}],
