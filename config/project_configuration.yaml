@@ -1,2 +1,9 @@
 # Collector specific configuration
 inventory_json: "https://data.geocode.earth/wof/dist/shapefile/inventory.json"
+
+non_country_territories:
+  - "un"
+  - "xs"
+  - "xx"
+  - "xy"
+  - "xz"

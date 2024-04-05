@@ -58,8 +58,16 @@ class WhosOnFirst:
         dataset_name = self.dataset_data[dataset_name]
         country = dataset_name.split("-")[3]
         country_info = Country.get_country_info_from_iso2(country)
+        if country == "xk":
+            country_info = {
+                "#country+code+v_iso3": "XKX",
+                "#country+name+preferred": "Kosovo",
+            }
         if not country_info:
+            if country not in self.configuration["non_country_territories"]:
+                self.errors.add(f"Could not get country info from {dataset_name}")
             return None
+
         country_iso = country_info["#country+code+v_iso3"]
         country_name = country_info["#country+name+preferred"]
 
@@ -69,7 +77,10 @@ class WhosOnFirst:
         dataset.set_maintainer("f2e346a1-f2d5-4178-ab52-0b23455e8bef")
         dataset.set_organization("c9f41aaf-4aa7-4c2f-b9c1-6290a20fd45d")
         dataset.set_subnational(True)
-        dataset.add_country_location(country_name)
+        if country == "xk":
+            dataset.add_other_location(country_iso)
+        else:
+            dataset.add_country_location(country_name)
         start_date = parse_date("2015-08-18")
         dataset.set_time_period(start_date, ongoing=True)
         dataset.add_tags(
