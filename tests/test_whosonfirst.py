@@ -32,10 +32,10 @@ class TestWhosOnFirst:
             {"name": "administrative boundaries-divisions", "vocabulary_id": "4e61d464-4943-4e97-973a-84673c1aaa87"},
             {"name": "population", "vocabulary_id": "4e61d464-4943-4e97-973a-84673c1aaa87"},
         ],
-        "title": "Afghanistan: Who's On First Administrative Subdivisions and Human Settlements",
+        "title": "Afghanistan: WOF Administrative Subdivisions and Human Settlements",
     }
     resource = {
-        "description": "Administrative polygons for Afghanistan",
+        "description": "Shapefile(s) for Afghanistan",
         "format": "shp",
         "name": "whosonfirst-data-admin-af-latest.zip",
         "resource_type": "api",

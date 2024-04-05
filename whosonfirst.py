@@ -70,9 +70,11 @@ class WhosOnFirst:
 
         country_iso = country_info["#country+code+v_iso3"]
         country_name = country_info["#country+name+preferred"]
+        if country == "gb":
+            country_name = "United Kingdom"
 
         name = f"whosonfirst-data-admin-{country_iso}"
-        title = f"{country_name}: Who's On First Administrative Subdivisions and Human Settlements"
+        title = f"{country_name}: WOF Administrative Subdivisions and Human Settlements"
         dataset = Dataset({"name": slugify(name), "title": title})
         dataset.set_maintainer("f2e346a1-f2d5-4178-ab52-0b23455e8bef")
         dataset.set_organization("c9f41aaf-4aa7-4c2f-b9c1-6290a20fd45d")
@@ -91,7 +93,7 @@ class WhosOnFirst:
         resource = Resource(
             {
                 "name": dataset_name,
-                "description": f"Administrative polygons for {country_name}",
+                "description": f"Shapefile(s) for {country_name}",
                 "format": "SHP",
                 "url": f"https://data.geocode.earth/wof/dist/shapefile/{dataset_name}",
             }

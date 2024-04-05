@@ -2,7 +2,7 @@
 [![Build Status](https://github.com/OCHA-DAP/hdx-scraper-whosonfirst/actions/workflows/run-python-tests.yaml/badge.svg)](https://github.com/OCHA-DAP/hdx-scraper-whosonfirst/actions/workflows/run-python-tests.yaml)
 [![Coverage Status](https://coveralls.io/repos/github/OCHA-DAP/hdx-scraper-whosonfirst/badge.svg?branch=main&ts=1)](https://coveralls.io/github/OCHA-DAP/hdx-scraper-whosonfirst?branch=main)
 
-This script connects to the [Who's On First site](https://geocode.earth/data/whosonfirst) and extracts data links and metadata creating one dataset per country in HDX. It makes one read from the data inventory and around 200 read/writes (API calls) to HDX in a one-hour period. It creates one temporary file and is run every month.
+This script connects to the [Who's On First site](https://geocode.earth/data/whosonfirst) and extracts data links and metadata creating one dataset per country in HDX. It makes one read from the data inventory and around 250 read/writes (API calls) to HDX in a one-hour period. It creates one temporary file and is run every month.
 
 
 ### Usage
