@@ -35,6 +35,9 @@ class WhosOnFirst:
             if len(dataset_name.split("-")) != 5:
                 continue
 
+            if dataset_name.split("-")[2] != "admin":
+                continue
+
             if entry["vintage"] != "latest":
                 continue
 
