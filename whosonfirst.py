@@ -35,6 +35,9 @@ class WhosOnFirst:
             if len(dataset_name.split("-")) != 5:
                 continue
 
+            if entry["vintage"] != "latest":
+                continue
+
             if datasets and dataset_name not in datasets:
                 continue
             last_update_date = entry["last_updated"]
