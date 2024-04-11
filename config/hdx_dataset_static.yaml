@@ -6,4 +6,4 @@ methodology_other: "The Who's On First dataset is both an original work and a mo
 dataset_source: "Multiple sources"
 package_creator: "briar-mills"
 private: False
-data_update_frequency: "-2"
+data_update_frequency: "365"

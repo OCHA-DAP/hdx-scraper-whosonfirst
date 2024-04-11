@@ -49,13 +49,17 @@ class WhosOnFirst:
             else:
                 last_update_date = datetime.now(tz=timezone.utc)
             if last_update_date > state.get(dataset_name, state["DEFAULT"]):
-                self.dataset_data[dataset_name] = dataset_name
+                self.dataset_data[dataset_name] = {
+                    "name": dataset_name,
+                    "date": last_update_date,
+                }
                 state[dataset_name] = last_update_date
 
         return [{"name": dataset_name} for dataset_name in sorted(self.dataset_data)], state
 
     def generate_dataset(self, dataset_name):
-        dataset_name = self.dataset_data[dataset_name]
+        metadata = self.dataset_data[dataset_name]
+        dataset_name = metadata["name"]
         country = dataset_name.split("-")[3]
         country_info = Country.get_country_info_from_iso2(country)
         if country == "xk":
@@ -84,7 +88,8 @@ class WhosOnFirst:
         else:
             dataset.add_country_location(country_name)
         start_date = parse_date("2015-08-18")
-        dataset.set_time_period(start_date, ongoing=True)
+        end_date = metadata["date"]
+        dataset.set_time_period(start_date, end_date)
         dataset.add_tags(
             [
                 "geodata", "populated places-settlements", "administrative boundaries-divisions", "population"

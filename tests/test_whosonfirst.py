@@ -20,7 +20,7 @@ from whosonfirst import WhosOnFirst
 
 class TestWhosOnFirst:
     dataset = {
-        "dataset_date": "[2015-08-18T00:00:00 TO *]",
+        "dataset_date": "[2015-08-18T00:00:00 TO 2024-03-04T23:59:59]",
         "groups": [{"name": "afg"}],
         "maintainer": "f2e346a1-f2d5-4178-ab52-0b23455e8bef",
         "name": "whosonfirst-data-admin-afg",
