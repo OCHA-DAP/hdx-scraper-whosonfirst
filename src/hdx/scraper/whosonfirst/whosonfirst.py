@@ -1,11 +1,6 @@
 #!/usr/bin/python
-"""
-Who's On First:
-------------
+"""Who's On First scraper"""
 
-Reads Who's On First JSON and creates datasets.
-
-"""
 import logging
 from datetime import datetime, timezone
 
@@ -55,7 +50,8 @@ class WhosOnFirst:
                 }
                 state[dataset_name] = last_update_date
 
-        return [{"name": dataset_name} for dataset_name in sorted(self.dataset_data)], state
+        dataset_names = sorted(list(self.dataset_data.keys()))
+        return dataset_names, state
 
     def generate_dataset(self, dataset_name):
         metadata = self.dataset_data[dataset_name]
@@ -92,7 +88,10 @@ class WhosOnFirst:
         dataset.set_time_period(start_date, end_date)
         dataset.add_tags(
             [
-                "geodata", "populated places-settlements", "administrative boundaries-divisions", "population"
+                "administrative boundaries-divisions",
+                "geodata",
+                "populated places-settlements",
+                "population",
             ]
         )
         resource = Resource(
