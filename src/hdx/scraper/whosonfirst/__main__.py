@@ -41,7 +41,7 @@ def main(
         None
     """
     configuration = Configuration.read()
-    User.check_current_user_write_access("<insert org name>")
+    User.check_current_user_write_access("wof")
 
     with ErrorsOnExit() as errors:
         with State(
