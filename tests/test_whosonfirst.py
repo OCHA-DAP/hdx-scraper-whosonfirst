@@ -1,4 +1,3 @@
-from hdx.utilities.dateparse import parse_date
 from hdx.utilities.downloader import Download
 from hdx.utilities.errors_onexit import ErrorsOnExit
 from hdx.utilities.path import temp_dir
@@ -35,12 +34,14 @@ class TestWhosOnFirst:
         ],
         "title": "Afghanistan: WOF Administrative Subdivisions and Human Settlements",
     }
-    resource = {
-        "description": "Shapefile(s) for Afghanistan",
-        "format": "shp",
-        "name": "whosonfirst-data-admin-af-latest.zip",
-        "url": "https://data.geocode.earth/wof/dist/shapefile/whosonfirst-data-admin-af-latest.zip",
-    }
+    resources = [
+        {
+            "description": "Shapefile(s) for Afghanistan",
+            "format": "shp",
+            "name": "whosonfirst-data-admin-af-latest.zip",
+            "url": "https://data.geocode.earth/wof/dist/shapefile/whosonfirst-data-admin-af-latest.zip",
+        }
+    ]
 
     def test_generate_dataset_and_showcase(
         self,
@@ -64,9 +65,8 @@ class TestWhosOnFirst:
                 whosonfirst = WhosOnFirst(
                     configuration, retriever, tempdir, ErrorsOnExit()
                 )
-                dataset_names, _ = whosonfirst.get_data(
-                    {"DEFAULT": parse_date("2023-01-01")},
-                    datasets="whosonfirst-data-admin-af-latest.zip",
+                dataset_names = whosonfirst.get_data(
+                    "whosonfirst-data-admin-af-latest.zip"
                 )
                 assert dataset_names == ["whosonfirst-data-admin-af-latest.zip"]
 
@@ -75,4 +75,4 @@ class TestWhosOnFirst:
                 )
                 assert dataset == self.dataset
                 resources = dataset.get_resources()
-                assert resources[0] == self.resource
+                assert resources == self.resources

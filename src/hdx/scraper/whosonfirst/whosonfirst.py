@@ -3,6 +3,7 @@
 
 import logging
 from datetime import datetime, timezone
+from typing import List, Optional
 
 from hdx.data.dataset import Dataset
 from hdx.data.resource import Resource
@@ -21,7 +22,7 @@ class WhosOnFirst:
         self.errors = errors
         self.dataset_data = {}
 
-    def get_data(self, state, datasets=None):
+    def get_data(self, datasets=None) -> List[str]:
         inventory_url = self.configuration["inventory_json"]
         inventory = self.retriever.download_json(inventory_url)
 
@@ -43,17 +44,15 @@ class WhosOnFirst:
                 last_update_date = parse_date(last_update_date)
             else:
                 last_update_date = datetime.now(tz=timezone.utc)
-            if last_update_date > state.get(dataset_name, state["DEFAULT"]):
-                self.dataset_data[dataset_name] = {
-                    "name": dataset_name,
-                    "date": last_update_date,
-                }
-                state[dataset_name] = last_update_date
+            self.dataset_data[dataset_name] = {
+                "name": dataset_name,
+                "date": last_update_date,
+            }
 
         dataset_names = sorted(list(self.dataset_data.keys()))
-        return dataset_names, state
+        return dataset_names
 
-    def generate_dataset(self, dataset_name):
+    def generate_dataset(self, dataset_name: str) -> Optional[Dataset]:
         metadata = self.dataset_data[dataset_name]
         dataset_name = metadata["name"]
         country = dataset_name.split("-")[3]
