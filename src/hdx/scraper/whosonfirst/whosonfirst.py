@@ -98,10 +98,10 @@ class WhosOnFirst:
             {
                 "name": dataset_name,
                 "description": f"Shapefile(s) for {country_name}",
-                "format": "SHP",
                 "url": f"https://data.geocode.earth/wof/dist/shapefile/{dataset_name}",
             }
         )
+        resource.set_format("shp")
         dataset.add_update_resource(resource)
 
         return dataset

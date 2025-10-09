@@ -39,9 +39,7 @@ class TestWhosOnFirst:
         "description": "Shapefile(s) for Afghanistan",
         "format": "shp",
         "name": "whosonfirst-data-admin-af-latest.zip",
-        "resource_type": "api",
         "url": "https://data.geocode.earth/wof/dist/shapefile/whosonfirst-data-admin-af-latest.zip",
-        "url_type": "api",
     }
 
     def test_generate_dataset_and_showcase(
