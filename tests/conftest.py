@@ -3,6 +3,7 @@ from os.path import join
 import pytest
 from hdx.api.configuration import Configuration
 from hdx.api.locations import Locations
+from hdx.data.dataset import Dataset
 from hdx.data.vocabulary import Vocabulary
 from hdx.location.country import Country
 from hdx.utilities.useragent import UserAgent
@@ -21,6 +22,14 @@ def input_dir(fixtures_dir):
 @pytest.fixture(scope="session")
 def config_dir(fixtures_dir):
     return join("src", "hdx", "scraper", "whosonfirst", "config")
+
+
+@pytest.fixture(scope="function")
+def read_dataset(monkeypatch):
+    def read_from_hdx(dataset_name):
+        return None
+
+    monkeypatch.setattr(Dataset, "read_from_hdx", staticmethod(read_from_hdx))
 
 
 @pytest.fixture(scope="session")
