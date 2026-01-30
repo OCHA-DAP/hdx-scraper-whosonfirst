@@ -59,16 +59,16 @@ class WhosOnFirst:
         country_info = Country.get_country_info_from_iso2(country)
         if country == "xk":
             country_info = {
-                "#country+code+v_iso3": "XKX",
-                "#country+name+preferred": "Kosovo",
+                "ISO 3166-1 Alpha 3-Codes": "XKX",
+                "Preferred Term": "Kosovo",
             }
         if not country_info:
             if country not in self.configuration["non_country_territories"]:
                 self.errors.add(f"Could not get country info from {dataset_name}")
             return None
 
-        country_iso = country_info["#country+code+v_iso3"]
-        country_name = country_info["#country+name+preferred"]
+        country_iso = country_info["ISO 3166-1 Alpha 3-Codes"]
+        country_name = country_info["Preferred Term"]
         if country == "gb":
             country_name = "United Kingdom"
 
